@@ -1,0 +1,97 @@
+0
+9223372036854775808
+-9223372036854775809
+0.0
+"0\0\n\t\v\\"
+null
+true
+false
+<nix/config.nix>
+a:0
+
+assert true;0
+assert false;0
+
+with{a=0;}a
+if true then 0 else 0
+!true
+0==0
+"0"=="0"
+[]==[0]
+[0]==[1]
+[]==[]
+{a=0;}=={a=0;}
+{a=0;}=={a=1;}
+{a=0;}=={b=0;}
+{a=0;}=={a=0;b=0;}
+
+0!=0
+"0"!="1"
+[]!=[0]
+[0]!=[1]
+[]!=[]
+{a=0;}!={a=0;}
+{a=0;}!={a=1;}
+{a=0;}!={b=0;}
+{a=0;}!={a=0;b=0;}
+
+"0"+"0"
+"0"+0
+0+0
+0.0+0
+0-0
+0.0-0
+0*0
+0.0*0
+0/ 1
+0/ 1.0
+0/ 0
+
+[0]++[]
+[]++[0]
+[0]++[0]
+
+(a: a)0
+({a}:a) {a=0;}
+({a,c?0,f?0,...}@x: x//{d=a;e=c;inherit f;}) {a=0;b=0;f=0;}
+
+{a=0;}.a or 0
+{a=0;}.b or 0
+{${"a"+"a"}=0;}.aa or 0
+
+(import <nix/config.nix>).xz
+
+builtins
+builtins.currentTime
+builtins.langVersion
+builtins.nixVersion
+
+throw""
+abort""
+builtins.trace""""
+builtins.head[]
+builtins.head[0]
+builtins.tail[]
+builtins.tail[0]
+builtins.map builtins.length [[][0]]
+builtins.filter builtins.isBool [0 true]
+builtins.all builtins.isInt [0.0 0]
+builtins.any builtins.isAttrs ["" {}]
+
+builtins.baseNameOf"0/0"
+builtins.dirOf"/0/0"
+builtins.getEnv""
+
+let a=b;b=a;in a
+rec{a=0;b=a;}
+{inherit builtins;}
+{inherit(builtins)length;}
+
+x
+{
+"
+-
+[
+_
+/*
+''
