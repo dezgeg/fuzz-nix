@@ -3,8 +3,10 @@ builtins.add 0 1
 builtins.add 0.5 1
 builtins.addErrorContext "" 1
 builtins.addErrorContext "" (throw "")
+builtins.all builtins.isInt []
 builtins.all builtins.isInt [0.0 0]
 builtins.any builtins.isAttrs ["" {}]
+builtins.any builtins.isAttrs []
 builtins.attrNames {r=0;}
 builtins.attrValues {r=0;}
 builtins.baseNameOf"0/0"
@@ -15,20 +17,30 @@ builtins.concatStringsSep "0" ["" "0"]
 builtins.currentTime
 builtins.deepSeq 0 0
 builtins.dirOf"/0/0"
+builtins.div 0 0
+builtins.div 0 1
+builtins.div 0.5 1
+builtins.div (-9223372036854775807-1) (-1)
 builtins.elem 0 [0]
 builtins.elemAt 0 []
 builtins.filter builtins.isBool [0 true]
+builtins.filter isNull [null]
 builtins.fromJSON "null"
 builtins.functionArgs isNull
 builtins.functionArgs (r: 0)
 builtins.functionArgs ({ r, e ? 0}: 0)
+builtins.getAttr "r" {}
 builtins.getAttr "r" {r=0;}
 builtins.getEnv""
+builtins.genList (r: r) 1
+builtins.genList (r: r) (-1)
 builtins.hasAttr "r" {r=0;}
 builtins.hashString "" ""
 builtins.hashString "sha256" ""
 builtins.head[]
 builtins.head[0]
+builtins.foldl' builtins.add 0 []
+builtins.foldl' builtins.add 0 [0]
 builtins.intersectAttrs{r=0;}{r=1;}
 builtins.isAttrs 0
 builtins.isBool 0
@@ -53,21 +65,32 @@ builtins.listToAttrs [{name="r";value="";}]
 builtins.map builtins.length [[][0]]
 builtins.match "^([0-9]*)\.([a-z]+)$" "0.a"
 builtins.match "^([0-9]*)\\.([a-z]+)$" "null"
+builtins.mul 0 1
+builtins.mul 0.5 1
 builtins.nixVersion
 builtins.parseDrvName "a-1"
 builtins.partition (r: r>1) [0 1 2]
+builtins.pathExists /nix/store/lx5i78a4izwk2qj1nq8rdc07y8zrwy90-empty
+builtins.pathExists /nix/store/lx5i78a4izwk2qj1nq8rdc07y8zrwy90-nonexistent
 builtins.placeholder""
 builtins.readDir ./.
 builtins.readFile ./.gitignore
+builtins.removeAttrs {r=0;} ["e"]
 builtins.removeAttrs {r=0;} ["r"]
+builtins.replaceStrings ["r"] [] ""
 builtins.replaceStrings ["r"] ["e"] "re"
 builtins.seq 0 0
 builtins.sort builtins.lessThan [0 ""]
 builtins.sort (r: v: r > v) [0 1]
+builtins.storePath /a
+builtins.storePath /nix/store/lx5i78a4izwk2qj1nq8rdc07y8zrwy90-empty
+builtins.storePath /nix/store/lx5i78a4izwk2qj1nq8rdc07y8zrwy90-nonexistent
 builtins.stringLength""
+builtins.sub 0 1
+builtins.sub 0.5 1
 builtins.substring 0 1 ""
-builtins.substring -1 -1 ""
-builtins.substring -1 1 ""
+builtins.substring (-1) (-1) ""
+builtins.substring (-1) 1 ""
 builtins.tail[]
 builtins.tail[0]
 builtins.tail[0 0]
@@ -76,6 +99,7 @@ builtins.toJSON [{r="";}0 1 0.0]
 builtins.toPath "/a"
 builtins.toXML [{r="";}0 1 0.0 isNull]
 builtins.trace""""
+builtins.trace 0""
 builtins.tryEval 0
 builtins.tryEval(throw"")
 builtins.typeOf ""
@@ -87,6 +111,8 @@ builtins.typeOf 0.0
 builtins.typeOf null
 builtins.typeOf (r: r)
 builtins.typeOf true
+builtins.unsafeGetAttrPos "r" {}
+builtins.unsafeGetAttrPos "r" {r=0;}
 builtins.valueSize ""
 builtins.valueSize []
 builtins.valueSize {}

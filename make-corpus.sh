@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
+exprs=$(echo exprs-*.txt)
+if [ "$#" -gt 0 ]; then
+    exprs="$@"
+fi
+
 rm -rf corpus
 mkdir -p corpus
+
 i=1
-cat exprs-*.txt | while read -r line; do
+cat $exprs | while read -r line; do
     if [ -z "$line" ]; then continue; fi
     n=$(printf "%03d" $i)
     echo "$line" > corpus/input-$n.txt
@@ -12,6 +18,7 @@ done
 
 rm -rf dict
 mkdir -p dict
+
 i=1
 cat lex-patterns.txt | while read -r line; do
     if [ -z "$line" ]; then continue; fi
