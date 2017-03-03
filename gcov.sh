@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
+dir=corpus
+if [ -n "$1" ]; then
+    dir="$1"
+fi
+
 rm -rf gcov-prefix htmlcov
 export GCOV_PREFIX=$(readlink -f gcov-prefix)
 
-for f in corpus/*; do
+for f in $dir/*; do
     ./result/bin/nix-instantiate --eval --strict --option restrict-eval true $f
 done
 
