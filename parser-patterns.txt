@@ -2,17 +2,17 @@
 9223372036854775808
 -9223372036854775809
 0.0
-"0\0\n\t\v\\"
+"0\0\r\n\t\\"
 null
 true
 false
 <nix/config.nix>
-a:0
+r:0
 
 assert true;0
 assert false;0
 
-with{a=0;}a
+with{r=0;}a
 if true then 0 else 0
 !true
 0==0
@@ -20,20 +20,20 @@ if true then 0 else 0
 []==[0]
 [0]==[1]
 []==[]
-{a=0;}=={a=0;}
-{a=0;}=={a=1;}
-{a=0;}=={b=0;}
-{a=0;}=={a=0;b=0;}
+{r=0;}=={r=0;}
+{r=0;}=={r=1;}
+{r=0;}=={e=0;}
+{r=0;}=={r=0;e=0;}
 
 0!=0
 "0"!="1"
 []!=[0]
 [0]!=[1]
 []!=[]
-{a=0;}!={a=0;}
-{a=0;}!={a=1;}
-{a=0;}!={b=0;}
-{a=0;}!={a=0;b=0;}
+{r=0;}!={r=0;}
+{r=0;}!={r=1;}
+{r=0;}!={e=0;}
+{r=0;}!={r=0;e=0;}
 
 "0"+"0"
 "0"+0
@@ -51,13 +51,17 @@ if true then 0 else 0
 []++[0]
 [0]++[0]
 
-(a: a)0
-({a}:a) {a=0;}
-({a,c?0,f?0,...}@x: x//{d=a;e=c;inherit f;}) {a=0;b=0;f=0;}
+(r: r)0
+({r}:r){r=0;}
+({r?0}:r){r=0;}
+({r?0}:r){e=0;}
+({r,...}:r){e=0;}
+({r}@e :e){r=0;}
 
-{a=0;}.a or 0
-{a=0;}.b or 0
-{${"a"+"a"}=0;}.aa or 0
+{e=0;}.e or 0
+{e=0;}.r or 0
+{${"r"+"e"}=0;}.re or 0
+{r.e=0;}.r.e
 
 (import <nix/config.nix>).xz
 
@@ -82,12 +86,12 @@ builtins.baseNameOf"0/0"
 builtins.dirOf"/0/0"
 builtins.getEnv""
 
-let a=b;b=a;in a
-rec{a=0;b=a;}
+let r=e;e=r;in r
+rec{r=0;e=r;}
 {inherit builtins;}
 {inherit(builtins)length;}
 
-x
+r
 {
 "
 -

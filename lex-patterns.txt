@@ -1,7 +1,6 @@
 e
-e42
-a'
-a-b
+r'
+r
 _
 
 0
@@ -15,13 +14,13 @@ _
 0.0
 .0
 
-a/b
-/a
-<a>
-~/a
+r/e
+/r
+<r>
+~/r
 
-a:0
-a://b/c.d
+r:0
+r://e/r.e
 
 assert
 else
@@ -40,6 +39,7 @@ with
 -
 ,
 ;
+:
 !
 ?
 /
@@ -72,16 +72,10 @@ ${
 ''$
 \${
 
-''\\
-''\n
-''\r
-''\t
-
 \\
 \n
 \r
 \t
-
 
 /*
 */
@@ -105,10 +99,6 @@ out
 drv
 type
 
-file
-line
-column
-
 meta
 
 drvPath
@@ -117,9 +107,6 @@ __functor
 __overrides
 __structuredAttrs
 __toString
-
-right
-wrong
 
 r:
 md5
