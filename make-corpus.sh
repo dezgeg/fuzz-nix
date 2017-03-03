@@ -3,7 +3,7 @@
 rm -rf corpus
 mkdir -p corpus
 i=1
-cat parser-patterns.txt | while read -r line; do
+cat exprs-*.txt | while read -r line; do
     if [ -z "$line" ]; then continue; fi
     n=$(printf "%03d" $i)
     echo "$line" > corpus/input-$n.txt

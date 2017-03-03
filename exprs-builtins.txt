@@ -1,0 +1,102 @@
+abort""
+builtins.add 0 1
+builtins.add 0.5 1
+builtins.addErrorContext "" 1
+builtins.addErrorContext "" (throw "")
+builtins.all builtins.isInt [0.0 0]
+builtins.any builtins.isAttrs ["" {}]
+builtins.attrNames {r=0;}
+builtins.attrValues {r=0;}
+builtins.baseNameOf"0/0"
+builtins.catAttrs "r" [{r = 1;} {e = 0;} {r = 2;}]
+builtins.compareVersions "0.10" "0.2"
+builtins.concatLists[[][]]
+builtins.concatStringsSep "0" ["" "0"]
+builtins.currentTime
+builtins.deepSeq 0 0
+builtins.dirOf"/0/0"
+builtins.elem 0 [0]
+builtins.elemAt 0 []
+builtins.filter builtins.isBool [0 true]
+builtins.fromJSON "null"
+builtins.functionArgs isNull
+builtins.functionArgs (r: 0)
+builtins.functionArgs ({ r, e ? 0}: 0)
+builtins.getAttr "r" {r=0;}
+builtins.getEnv""
+builtins.hasAttr "r" {r=0;}
+builtins.hashString "" ""
+builtins.hashString "sha256" ""
+builtins.head[]
+builtins.head[0]
+builtins.intersectAttrs{r=0;}{r=1;}
+builtins.isAttrs 0
+builtins.isBool 0
+builtins.isFloat 0
+builtins.isFunction 0
+builtins.isInt 0
+builtins.isList 0
+builtins.isString 0
+builtins.langVersion
+builtins.lessThan [] [0]
+builtins.lessThan 0.0 1.0
+builtins.lessThan /0 /1
+builtins.lessThan 0 1
+builtins.lessThan "" "a"
+builtins.lessThan null null
+builtins.lessThan {} {r=0;}
+builtins.lessThan (r: r) isNull
+builtins.lessThan true false
+builtins.listToAttrs [{}]
+builtins.listToAttrs [{name="r";}]
+builtins.listToAttrs [{name="r";value="";}]
+builtins.map builtins.length [[][0]]
+builtins.match "^([0-9]*)\.([a-z]+)$" "0.a"
+builtins.match "^([0-9]*)\\.([a-z]+)$" "null"
+builtins.nixVersion
+builtins.parseDrvName "a-1"
+builtins.partition (r: r>1) [0 1 2]
+builtins.placeholder""
+builtins.readDir ./.
+builtins.readFile ./.gitignore
+builtins.removeAttrs {r=0;} ["r"]
+builtins.replaceStrings ["r"] ["e"] "re"
+builtins.seq 0 0
+builtins.sort builtins.lessThan [0 ""]
+builtins.sort (r: v: r > v) [0 1]
+builtins.stringLength""
+builtins.substring 0 1 ""
+builtins.substring -1 -1 ""
+builtins.substring -1 1 ""
+builtins.tail[]
+builtins.tail[0]
+builtins.tail[0 0]
+builtins.toFile "a" ""
+builtins.toJSON [{r="";}0 1 0.0]
+builtins.toPath "/a"
+builtins.toXML [{r="";}0 1 0.0 isNull]
+builtins.trace""""
+builtins.tryEval 0
+builtins.tryEval(throw"")
+builtins.typeOf ""
+builtins.typeOf []
+builtins.typeOf {}
+builtins.typeOf 0
+builtins.typeOf /0
+builtins.typeOf 0.0
+builtins.typeOf null
+builtins.typeOf (r: r)
+builtins.typeOf true
+builtins.valueSize ""
+builtins.valueSize []
+builtins.valueSize {}
+builtins.valueSize 0
+builtins.valueSize /0
+builtins.valueSize 0.0
+builtins.valueSize null
+builtins.valueSize (r: r)
+builtins.valueSize true
+isNull null
+throw""
+toString[]
+toString{}
