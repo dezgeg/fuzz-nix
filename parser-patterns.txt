@@ -12,7 +12,7 @@ r:0
 assert true;0
 assert false;0
 
-with{r=0;}a
+with{r=0;}r
 if true then 0 else 0
 !true
 0==0
@@ -35,6 +35,15 @@ if true then 0 else 0
 {r=0;}!={e=0;}
 {r=0;}!={r=0;e=0;}
 
+{r=0;}//{}
+{}//{r=0;}
+
+{r=0;}//{e=0;}
+{e=0;}//{r=0;}
+
+{r=0;}//{r=1;}
+{r=0;}//{r=1;}
+
 "0"+"0"
 "0"+0
 0+0
@@ -46,6 +55,13 @@ if true then 0 else 0
 0/ 1
 0/ 1.0
 0/ 0
+
+true&&true
+false&&false
+true||true
+false||false
+true->true
+false->false
 
 [0]++[]
 []++[0]
@@ -77,19 +93,135 @@ builtins.head[]
 builtins.head[0]
 builtins.tail[]
 builtins.tail[0]
+builtins.tail[0 0]
 builtins.map builtins.length [[][0]]
 builtins.filter builtins.isBool [0 true]
 builtins.all builtins.isInt [0.0 0]
 builtins.any builtins.isAttrs ["" {}]
+isNull null
 
 builtins.baseNameOf"0/0"
 builtins.dirOf"/0/0"
 builtins.getEnv""
 
+builtins.typeOf null
+builtins.typeOf true
+builtins.typeOf 0
+builtins.typeOf 0.0
+builtins.typeOf ""
+builtins.typeOf {}
+builtins.typeOf []
+builtins.typeOf /0
+builtins.typeOf (r: r)
+
+builtins.valueSize null
+builtins.valueSize true
+builtins.valueSize 0
+builtins.valueSize 0.0
+builtins.valueSize ""
+builtins.valueSize {}
+builtins.valueSize []
+builtins.valueSize /0
+builtins.valueSize (r: r)
+
+builtins.lessThan null null
+builtins.lessThan true false
+builtins.lessThan 0 1
+builtins.lessThan 0.0 1.0
+builtins.lessThan "" "a"
+builtins.lessThan {} {r=0;}
+builtins.lessThan [] [0]
+builtins.lessThan /0 /1
+builtins.lessThan (r: r) isNull
+
+builtins.substring -1 1 ""
+builtins.substring -1 -1 ""
+builtins.substring 0 1 ""
+
+builtins.parseDrvName "a-1"
+builtins.compareVersions "0.10" "0.2"
+builtins.partition (r: r>1) [0 1 2]
+
+builtins.isFunction 0
+builtins.isInt 0
+builtins.isFloat 0
+builtins.isString 0
+builtins.isBool 0
+builtins.isList 0
+builtins.isAttrs 0
+
+builtins.elemAt 0 []
+
+builtins.tryEval 0
+builtins.tryEval(throw"")
+
+builtins.readFile ./.gitignore
+builtins.readDir ./.
+
+builtins.attrNames {r=0;}
+builtins.attrValues {r=0;}
+
+builtins.seq 0 0
+builtins.deepSeq 0 0
+
+builtins.elem 0 [0]
+
+builtins.hasAttr "r" {r=0;}
+builtins.getAttr "r" {r=0;}
+
+builtins.addErrorContext "" 1
+builtins.addErrorContext "" (throw "")
+
+builtins.concatLists[[][]]
+
+builtins.sort builtins.lessThan [0 ""]
+builtins.sort (r: v: r > v) [0 1]
+
+builtins.catAttrs "r" [{r = 1;} {e = 0;} {r = 2;}]
+builtins.functionArgs ({ r, e ? 0}: 0)
+builtins.functionArgs isNull
+builtins.functionArgs (r: 0)
+
+builtins.intersectAttrs{r=0;}{r=1;}
+builtins.listToAttrs [{name="r";value="";}]
+builtins.listToAttrs [{name="r";}]
+builtins.listToAttrs [{}]
+
+builtins.placeholder""
+
+builtins.toXML [{r="";}0 1 0.0 isNull]
+builtins.toJSON [{r="";}0 1 0.0]
+builtins.fromJSON "null"
+
+builtins.toFile "a" ""
+
+toString {}
+toString []
+
+builtins.stringLength""
+
+builtins.removeAttrs {r=0;} ["r"]
+
+builtins.hashString "sha256" ""
+builtins.hashString "" ""
+
+builtins.toPath "/a"
+
+builtins.add 0 1
+builtins.add 0.5 1
+
+builtins.concatStringsSep "0" ["" "0"]
+builtins.replaceStrings ["r"] ["e"] "re"
+
+builtins.match "^([0-9]*)\.([a-z]+)$" "0.a"
+builtins.match "^([0-9]*)\\.([a-z]+)$" "null"
+
 let r=e;e=r;in r
 rec{r=0;e=r;}
 {inherit builtins;}
 {inherit(builtins)length;}
+builtins?x
+builtins?true
 
 r
 {
