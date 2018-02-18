@@ -60,8 +60,8 @@ true&&true
 false&&false
 true||true
 false||false
-true->true
-false->false
+true ->true
+false ->false
 
 [0]++[]
 []++[0]
