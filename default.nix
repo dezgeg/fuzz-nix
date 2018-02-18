@@ -1,5 +1,5 @@
 let
-  pkgs = import <nixpkgs> {};
+  pkgs = import ~/opt/nixpkgs {};
   nix = (import ./nix/release.nix {}).build.x86_64-linux;
 
   aflSetupHook = pkgs.makeSetupHook {} (pkgs.writeText "afl-hook.sh" ''

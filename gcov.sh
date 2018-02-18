@@ -9,7 +9,7 @@ rm -rf gcov-prefix htmlcov
 export GCOV_PREFIX=$(readlink -f gcov-prefix)
 
 for f in $dir/*; do
-    ./result/bin/nix-instantiate --eval --strict --option restrict-eval true $f
+    ./result/bin/nix-instantiate --eval --strict --option restrict-eval true --dry-run $f
 done
 
 (
