@@ -12,11 +12,20 @@ r:0
 assert true;0
 assert false;0
 
-with{r=0;}r
-if true then 0 else 0
+with{r=0;};r
+with{r=0;};e
+if [] then 0 else []
+if true then 0 else []
+if false then 0 else []
 !true
+true==false
 0==0
 "0"=="0"
+./empty == ./empty
+0.0==0
+0==0.0
+0.0==0.0
+(x: x)==(y: y)
 []==[0]
 [0]==[1]
 []==[]
@@ -48,10 +57,17 @@ if true then 0 else 0
 "0"+0
 0+0
 0.0+0
+0+0.0
+0+ ./empty
+./empty +0
+0.0+ ./empty
+./empty +0.0
 0-0
 0.0-0
+0-0.0
 0*0
 0.0*0
+0*0.0
 0/ 1
 0/ 1.0
 0/ 0
@@ -74,15 +90,25 @@ false ->false
 ({r,...}:r){e=0;}
 ({r}@e :e){r=0;}
 
+0 0
+
+{}.e
+{e=abort"";}.e
 {e=0;}.e or 0
 {e=0;}.r or 0
 {${"r"+"e"}=0;}.re or 0
+{re=0;${"r"+"e"}=0;}.re or 0
+{${null}=0;}.re or 0
+{re=0;}.${"r"+"e"}
+{re=0;}.${[]}
 {r.e=0;}.r.e
 
+[].e
+
 (import <nix/config.nix>).xz
+./empty
 
 builtins
-
 
 let r=e;e=r;in r
 rec{r=0;e=r;}
@@ -90,6 +116,7 @@ rec{r=0;e=r;}
 {inherit(builtins)length;}
 builtins?x
 builtins?true
+builtins?${"tr"+"ue"}
 
 r
 {

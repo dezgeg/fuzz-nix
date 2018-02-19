@@ -2,6 +2,7 @@ builtins.derivationStrict{name="0";builder="0";system="0";outputs=[];}
 "${derivation{}}"
 "${derivation{name="";}}"
 "${derivation{name="0";}}"
+"${derivation{name=abort"0";}}"
 "${derivation{name="0";builder="0";}}"
 "${derivation{name="0";builder="0";system="0";}}"
 "${derivation{name="0";builder="0";system="0";args=[];}}"

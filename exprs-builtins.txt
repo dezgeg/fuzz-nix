@@ -26,6 +26,10 @@ builtins.elemAt 0 []
 builtins.filter builtins.isBool [0 true]
 builtins.filter isNull [null]
 builtins.fromJSON "null"
+builtins.fromJSON "true"
+builtins.fromJSON "0"
+builtins.fromJSON "{}"
+builtins.fromJSON "[0.0]"
 builtins.functionArgs isNull
 builtins.functionArgs (r: 0)
 builtins.functionArgs ({ r, e ? 0}: 0)
@@ -82,6 +86,7 @@ builtins.replaceStrings ["r"] ["e"] "re"
 builtins.seq 0 0
 builtins.sort builtins.lessThan [0 ""]
 builtins.sort (r: v: r > v) [0 1]
+builtins.split "," "0,0"
 builtins.storePath /a
 builtins.storePath /nix/store/lx5i78a4izwk2qj1nq8rdc07y8zrwy90-empty
 builtins.storePath /nix/store/lx5i78a4izwk2qj1nq8rdc07y8zrwy90-nonexistent
