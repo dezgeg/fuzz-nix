@@ -22,7 +22,7 @@ let
           if ! [ -e $out/.build ]; then return; fi
 
           find $out/.build/ -type f -a ! \
-              \( -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.h" -o -name "*.hh" -o -name "*.y" -o -name "*.l" -o -name "*.gcno" \) \
+              \( -name "*.c" -o -name "*.cc" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" -o -name "*.hh" -o -name "*.y" -o -name "*.l" -o -name "*.gcno" \) \
               | xargs rm -f --
       }
   '');
