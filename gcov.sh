@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export NIX_PATH=foo=$(readlink -f .)
+source common.sh
 
 dir=corpus
 if [ -n "$1" ]; then
@@ -8,6 +8,7 @@ if [ -n "$1" ]; then
 fi
 
 rm -rf gcov-prefix htmlcov
+mkdir -p gcov-prefix
 export GCOV_PREFIX=$(readlink -f gcov-prefix)
 
 for f in $dir/*; do
