@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export NIX_PATH=foo=$(readlink -f .)
+
 dir=corpus
 if [ -n "$1" ]; then
     dir="$1"
