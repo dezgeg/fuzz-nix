@@ -2,10 +2,20 @@
 
 source common.sh
 
+if [ "$#" -gt 0 ]; then
+    if [ -d "$1" ]; then
+        inputs=$(echo "$1"/*)
+    else
+        inputs="$@"
+    fi
+else
+    inputs=$(echo corups/*)
+fi
+
 rm -rf minimized-tmin
 mkdir -p minimized-tmin
 
-for f in $(cd corpus && echo *.txt); do
-    $AFL/bin/afl-tmin -i corpus/$f -o minimized-tmin/$f -m 300 result/bin/nix-instantiate --eval --strict --option restrict-eval true --dry-run @@ || break
+for f in $inputs; do
+    $AFL/bin/afl-tmin -i "$f" -o minimized-tmin/"$(basename "$f")" -m 300 result/bin/nix-instantiate --eval --strict --option restrict-eval true --dry-run @@ || break
 done
-vimdiff <(cd corpus && grep '.*' *.txt) <(cd minimized-tmin && grep '.*' *.txt)
+vimdiff <(grep '.*' $inputs) <(cd minimized-tmin && grep '.*' *)

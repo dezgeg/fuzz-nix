@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-exprs=$(echo exprs-*.txt)
 if [ "$#" -gt 0 ]; then
     exprs="$@"
+else
+    exprs=$(echo exprs-*.txt)
 fi
 
 rm -rf corpus
