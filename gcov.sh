@@ -3,6 +3,8 @@
 gcovNix=$(nix-build --no-out-link -A gcovBuild)
 lcov=$(nix-build '<nixpkgs>' --no-out-link -A lcov)
 
+export PATH=$(nix-build '<nixpkgs>' --no-out-link -A gcc-unwrapped)/bin:$PATH
+
 source common.sh
 
 dir=inputs/corpus
