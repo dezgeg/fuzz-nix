@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 gcovNix=$(nix-build --no-out-link -A gcovBuild)
+lcov=$(nix-build '<nixpkgs>' --no-out-link -A lcov)
 
 source common.sh
 
@@ -30,7 +31,7 @@ done
         cp /$srcfile $srcfile
     done
 
-    lcov -d . -c -o coverage.info
-    genhtml coverage.info -o ../htmlcov --ignore-errors source
+    $lcov/bin/lcov -d . -c -o coverage.info
+    $lcov/bin/genhtml coverage.info -o ../htmlcov --ignore-errors source
 )
 
