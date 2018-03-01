@@ -14,9 +14,9 @@ let
 
   gcovSetupHook = pkgs.makeSetupHook {} (pkgs.writeText "gcov-hook.sh" ''
       postPhases+=" cleanDotBuild"
-			export NIX_SET_BUILD_ID=1
-			export NIX_CFLAGS_COMPILE+=" -Og -ggdb --coverage"
-			dontStrip=1
+      export NIX_SET_BUILD_ID=1
+      export NIX_CFLAGS_COMPILE+=" -Og -ggdb --coverage"
+      dontStrip=1
 
       cleanDotBuild() {
           if ! [ -e $out/.build ]; then return; fi
