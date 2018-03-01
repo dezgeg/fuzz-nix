@@ -14,7 +14,7 @@ i=1
 cat $exprs | while read -r line; do
     if [ -z "$line" ]; then continue; fi
     n=$(printf "%03d" $i)
-    echo "$line" > inputs/corpus/$n.in
+    echo "$line" > inputs/corpus/initial-$n.in
     (( i++ ))
 done
 
