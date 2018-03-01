@@ -7,16 +7,21 @@ export PATH=$(nix-build '<nixpkgs>' --no-out-link -A gcc-unwrapped)/bin:$PATH
 
 source common.sh
 
-dir=inputs/corpus
-if [ -n "$1" ]; then
-    dir="$1"
+if [ "$#" -gt 0 ]; then
+    if [ -d "$1" ]; then
+        inputs=$(echo "$1"/*)
+    else
+        inputs="$@"
+    fi
+else
+    inputs=$(echo inputs/corpus/*)
 fi
 
 rm -rf gcov-prefix htmlcov
 mkdir -p gcov-prefix
 export GCOV_PREFIX=$(readlink -f gcov-prefix)
 
-for f in $dir/*; do
+for f in $inputs; do
     $gcovNix/bin/nix-instantiate --eval --strict --option restrict-eval true --dry-run $f
 done
 
