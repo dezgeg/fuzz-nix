@@ -5,22 +5,22 @@ This repository provides turn-key scripts & input data for fuzzing the Nix inter
 
 To use:
 - Checkout the `nix` submodule. There should be a hacky commit on top of Nix master to make it work.
-  (For some reason AFL-compiled code has problems with `thread_local` variables).
+  (For some reason AFL-compiled code that uses `thread_local` variables doesn't link, seems upstream problem).
 - Run `./make-corpus.sh`, see below on what it does.
 - Run `./fuzz.sh`.
 
 ## Structure of the repo
 
 ### Input files
-- `corpus/`: The fuzzing corpus. Unlike the usual AFL format of one input per file, The `.txt` contain one input per line.
+- `corpus/`: The fuzzing corpus. Unlike the usual AFL format of one input per file, the `.txt` contain one input per line.
 - `dict/`: The dictionary of tokens used during fuzzing. Same format as above.
 
 ### Scripts
 
 - `make-corpus.sh`: Preprocesses the `corpus/` and `dict/` directories to a format suitable for AFL.
-- `fuzz.sh: Starts the fuzzer.
-- `cmin.sh`: Run the `afl-cmin` for all the input files.
-- `tmin.sh`: Run the `afl-tmin` for all the input files.
+- `fuzz.sh`: Starts the fuzzer.
+- `cmin.sh`: Run the `afl-cmin`, the test corpus minimizer for all the input files.
+- `tmin.sh`: Run the `afl-tmin`, the testcase minimizer for all the input files.
 - `gcov.sh`: Measure code coverage of the corpus.
 
 ## Bug gallery
