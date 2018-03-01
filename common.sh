@@ -1,4 +1,5 @@
-AFL=$(nix-build --no-out-link '<nixpkgs>' -A afl)
+afl=$(nix-build --no-out-link '<nixpkgs>' -A afl)
+aflNix=$(nix-build --no-out-link -A aflBuild)
 
 export NIX_PATH=foo=$(readlink -f .)
 export AFL_SKIP_CPUFREQ=1

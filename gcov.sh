@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+gcovNix=$(nix-build --no-out-link -A gcovBuild)
+
 source common.sh
 
 dir=inputs/corpus
@@ -12,7 +14,7 @@ mkdir -p gcov-prefix
 export GCOV_PREFIX=$(readlink -f gcov-prefix)
 
 for f in $dir/*; do
-    ./result/bin/nix-instantiate --eval --strict --option restrict-eval true --dry-run $f
+    $gcovNix/bin/nix-instantiate --eval --strict --option restrict-eval true --dry-run $f
 done
 
 (
