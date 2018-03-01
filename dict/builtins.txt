@@ -21,8 +21,11 @@ div
 elem
 elemAt
 false
+fetchGit
+fetchMercurial
 fetchTarball
 fetchurl
+fetchUrl
 filter
 filterSource
 findFile
@@ -34,6 +37,7 @@ genList
 getAttr
 getEnv
 hasAttr
+hasContext
 hashString
 head
 import
@@ -58,6 +62,7 @@ nixVersion
 null
 parseDrvName
 partition
+path
 pathExists
 placeholder
 readDir
@@ -67,6 +72,8 @@ replaceStrings
 scopedImport
 seq
 sort
+split
+splitVersion
 storeDir
 storePath
 stringLength
