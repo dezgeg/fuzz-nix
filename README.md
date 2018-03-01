@@ -21,7 +21,7 @@ To use:
 - `fuzz.sh`: Starts the fuzzer.
 - `cmin.sh`: Run the `afl-cmin`, the test corpus minimizer for all the input files.
 - `tmin.sh`: Run the `afl-tmin`, the testcase minimizer for all the input files.
-- `gcov.sh`: Measure code coverage of the corpus.
+- `gcov.sh`: Measure code coverage of the corpus and write a HTML report to the `htmlcov/` directory..
 
 ## Bug gallery
 - https://github.com/NixOS/nix/commit/1d0e42879fa687a7b6856b1a63070e44bd8ed5c4
