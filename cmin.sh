@@ -5,7 +5,7 @@ source common.sh
 if [ "$#" -gt 0 ]; then
     inputDir="$1"
 else
-    inputDir="corpus"
+    inputDir="inputs/corpus"
 fi
 
 rm -rf minimized-cmin

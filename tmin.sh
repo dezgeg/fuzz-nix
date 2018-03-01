@@ -9,7 +9,7 @@ if [ "$#" -gt 0 ]; then
         inputs="$@"
     fi
 else
-    inputs=$(echo corups/*)
+    inputs=$(echo inputs/corpus/*)
 fi
 
 rm -rf minimized-tmin

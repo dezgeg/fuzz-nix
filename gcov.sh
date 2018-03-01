@@ -2,7 +2,7 @@
 
 source common.sh
 
-dir=corpus
+dir=inputs/corpus
 if [ -n "$1" ]; then
     dir="$1"
 fi

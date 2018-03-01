@@ -3,33 +3,34 @@
 if [ "$#" -gt 0 ]; then
     exprs="$@"
 else
-    exprs=$(echo exprs-*.txt)
+    exprs=$(echo corpus/*.txt)
 fi
 
-rm -rf corpus
-mkdir -p corpus
+mkdir -p inputs
+rm -rf inputs/corpus
+mkdir -p inputs/corpus
 
 i=1
 cat $exprs | while read -r line; do
     if [ -z "$line" ]; then continue; fi
     n=$(printf "%03d" $i)
-    echo "$line" > corpus/input-$n.txt
+    echo "$line" > inputs/corpus/$n.in
     (( i++ ))
 done
 
-rm -rf dict
-mkdir -p dict
+rm -rf inputs/dict
+mkdir -p inputs/dict
 
 i=1
-cat lex-patterns.txt | while read -r line; do
+cat dict/*.txt | while read -r line; do
     if [ -z "$line" ]; then continue; fi
     n=$(printf "%03d" $i)
-    echo "$line" > dict/kw-$n.txt
+    echo "$line" > inputs/dict/$n.kw
     (( i++ ))
 done
 
-echo -e ' ' > dict/space.txt
-echo -e '\t' > dict/tab.txt
-echo -e '\n' > dict/nl.txt
-echo -e '\r' > dict/cr.txt
-echo -e '\r\n' > dict/crnl.txt
+echo -e ' ' > inputs/dict/space.txt
+echo -e '\t' > inputs/dict/tab.txt
+echo -e '\n' > inputs/dict/nl.txt
+echo -e '\r' > inputs/dict/cr.txt
+echo -e '\r\n' > inputs/dict/crnl.txt
