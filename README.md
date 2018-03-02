@@ -29,6 +29,7 @@ To use:
 - https://github.com/NixOS/nix/commit/77e9e1ed91182cb8409d325e225a99decb49b3d5
 
 ## TODO
+- Try ASAN or other sanitizers.
 - Figure out parallelized fuzzing.
 - Get `afl-clang-fast` working.
     - And the persistent mode.
