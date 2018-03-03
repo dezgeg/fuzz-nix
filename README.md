@@ -19,6 +19,7 @@ To use:
 
 - `make-corpus.sh`: Preprocesses the `corpus/` and `dict/` directories to a format suitable for AFL.
 - `fuzz.sh`: Starts the fuzzer.
+- `plot.sh`: Show the status of the fuzzing job as shown by `afl-plot`.
 - `cmin.sh`: Run the `afl-cmin`, the test corpus minimizer for all the input files.
 - `tmin.sh`: Run the `afl-tmin`, the testcase minimizer for all the input files.
 - `gcov.sh`: Measure code coverage of the corpus and write a HTML report to the `htmlcov/` directory..
