@@ -18,4 +18,4 @@ mkdir -p minimized-tmin
 for f in $inputs; do
     $afl/bin/afl-tmin -i "$f" -o minimized-tmin/"$(basename "$f")" -m 300 $aflNix/bin/nix-instantiate --eval --strict --option restrict-eval true --dry-run @@ || break
 done
-vimdiff <(grep '.*' $inputs | perl -pe 's|(?:[^:]+/)?([^:]+):|$1:|') <(cd minimized-tmin && grep '.*' *)
+vimdiff <(grep -a '.*' $inputs | perl -pe 's|(?:[^:]+/)?([^:]+):|$1:|') <(cd minimized-tmin && grep -a '.*' *)
