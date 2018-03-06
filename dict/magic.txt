@@ -49,3 +49,10 @@ recursive
 startSet
 operator
 key
+
+<nix/buildenv.nix>
+<nix/config.nix>
+<nix/derivation.nix>
+<nix/fetchurl.nix>
+<nix/imported-drv-to-derivation.nix>
+<nix/unpack-channel.nix>
