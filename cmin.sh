@@ -9,5 +9,5 @@ else
 fi
 
 rm -rf minimized-cmin
-$afl/bin/afl-cmin -i "$inputDir" -o minimized-cmin -m 300 $aflNix/bin/nix-instantiate --eval --strict --option restrict-eval true --dry-run @@
+$afl/bin/afl-cmin -i "$inputDir" -o minimized-cmin -m 300 $aflNix/bin/nix-instantiate $fuzzArgs @@
 vimdiff <(cd "$inputDir" && grep -a '.*' *) <(cd minimized-cmin && grep -a '.*' *)

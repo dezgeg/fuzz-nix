@@ -22,7 +22,7 @@ mkdir -p gcov-prefix
 export GCOV_PREFIX=$(readlink -f gcov-prefix)
 
 for f in $inputs; do
-    $gcovNix/bin/nix-instantiate --eval --strict --option restrict-eval true --dry-run $f
+    $gcovNix/bin/nix-instantiate $fuzzArgs $f
 done
 
 (
