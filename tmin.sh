@@ -16,6 +16,8 @@ rm -rf minimized-tmin
 mkdir -p minimized-tmin
 
 for f in $inputs; do
-    $afl/bin/afl-tmin -i "$f" -o minimized-tmin/"$(basename "$f")" -m 300 $aflNix/bin/nix-instantiate $fuzzArgs @@ || break
+    if ! $afl/bin/afl-tmin -i "$f" -o "minimized-tmin/$(basename "$f")" -m 300 $aflNix/bin/nix-instantiate $fuzzArgs @@; then
+        cp "$f" "minimized-tmin/$(basename "$f")"
+    fi
 done
 vimdiff <(grep -a '.*' $inputs | perl -pe 's|(?:[^:]+/)?([^:]+):|$1:|') <(cd minimized-tmin && grep -a '.*' *)
