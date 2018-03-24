@@ -4,8 +4,7 @@
 This repository provides turn-key scripts & input data for fuzzing the Nix interpreter.
 
 To use:
-- Checkout the `nix` submodule. There should be a hacky commit on top of Nix master to make it work.
-  (For some reason AFL-compiled code that uses `thread_local` variables doesn't link, seems upstream problem).
+- Checkout the `nix` submodule to any recent-ish version you wish to test.
 - Run `./make-corpus.sh`, see below on what it does.
 - Run `./fuzz.sh`.
 
