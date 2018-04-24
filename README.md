@@ -27,6 +27,7 @@ To use:
 - https://github.com/NixOS/nix/commit/1d0e42879fa687a7b6856b1a63070e44bd8ed5c4
 - https://github.com/NixOS/nix/commit/546f98dace5c3569211caf392c9dde06a20aa7b0
 - https://github.com/NixOS/nix/commit/77e9e1ed91182cb8409d325e225a99decb49b3d5
+- https://github.com/NixOS/nix/commit/af86132e1afa65b4b466af3ea9c7084836c91ee0
 
 ## TODO
 - Try ASAN or other sanitizers.

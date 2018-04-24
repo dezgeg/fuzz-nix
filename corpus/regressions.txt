@@ -2,3 +2,4 @@ abort "\r"
 builtins.replaceStrings [""] ["X"] ""
 builtins.replaceStrings ["-"] ["_"] "a-b"
 builtins.derivationStrict{name="0";builder="0";system="0";outputHash="1q69lz7Empb06nzfkj651413n9icx0njmyr3xzq1j9qy";outputHashAlgo="sha256";}
+builtins.unsafeGetAttrPos "abort" builtins
