@@ -9,6 +9,7 @@ let
         export CC=${pkgs.afl}/bin/afl-gcc
         export CXX=${pkgs.afl}/bin/afl-g++
         export CFLAGS="-O3 -funroll-loops"
+        export PRECOMPILE_HEADERS=0
       }
   '');
 
